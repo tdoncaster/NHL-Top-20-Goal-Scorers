@@ -4,3 +4,8 @@ You will be building a working API and front-end. This is part 1 of 2. Create a 
 
 DB NHLTOP20
 
+Search by 
+Name
+team
+
+
