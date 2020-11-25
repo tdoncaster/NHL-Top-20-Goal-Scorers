@@ -7,5 +7,5 @@ DB NHLTop20
 # Search By 
   name 
   games played
-  teams 
+  position 
   
