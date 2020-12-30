@@ -5,20 +5,20 @@ html
         h1 NHL TopScorers API 
             h2 Description - This API lists NHL top 20 Goal Scorers of all time 
                 h3 Method - GET (Returns list of players from DB)
-                h3 Route http://localhost:1336/players
+                h3 Route http://localhost:1336/
                     ul
-                        li Get/Players - Display full list of top 20 players
-                        li Get/Positions - (C, RW, LW, D) Displays top Goal Scorer for each position
-                        li Get/Games - This will display list of players based on number of games (using < or > or =  value)
-                        li Get/Goals - This will display list of players based on number of goals (using < or > or = value ) 
+                        li Get/topscorers - Display full list of top 20 players
+                        li Get/topscorers/id - This will display single player based on id(and Ranking)
+                        
+                        
                 
                 h3 Method - Delete (Deletes player record from list)
-                h3 Route -  http://localhost:1336/player(name)
+                h3 Route -  http://localhost:1336/topscorers/name
                     ul
                         li Delete/player - (name)
 
                 h3 Method -Post 
-                h3 Route - http://localhost:1336/player(name)
+                h3 Route - http://localhost:1336/topscorers/name
                     ul
                         li - Post New Player including ID, Name, Position, Games played, Goals
                     h4 Description -Saves NEW Player to Database 

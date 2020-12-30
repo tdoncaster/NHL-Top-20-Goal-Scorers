@@ -1,12 +1,15 @@
 const { response } = require('express')
 const express = require('express')
-// const bodyParser = require('body-parser')
+const bodyParser = require('body-parser')
 // const { } = require('./Controllers/index.js')
-const { getIndex 
-} = require('./controllers/search')
+const { getTop20scorers, getTopScorersById, saveNewPlayer } = require('./Controllers/topscorers')
+
 const app = express()
 
-// app.get('/top20scorers', )
+app.get('/topscorers', getTop20scorers )
+app.get('/topscorers/:id', getTopScorersById )
+
+app.post('/topscorers', bodyParser.json(), saveNewPlayer)
 
 app.set('view engine', 'pug')
 app.use(express.static('public'))

@@ -4,9 +4,10 @@
   "description": "You will be building a working API and front-end. This is part 1 of 2. Create a new repo in GitHub for your project, make your instructor a collaborator, and clone it locally. Remember to work in and part-one-answer branch, not master In this part of your project you will be building the front-end for your API site. The design and content of your front-end is up to you, the only requirements are that it provide documentation for using the API you will be building and that it be built using Pug Your first progress check with your instructor will be the week of 11/18 You should push all progress to GitHub prior to your meeting with the instructor Your graded submission for this part will be due on 11/24 before class",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon index.js",
-    "lint": ".node_modules/.bin/eslint --format codeframe."
+    "lint": ".node_modules/.bin/eslint --format codeframe .",
+    "dev:migrate": "./node_modules/.bin/env-cmd ./node_modules/.bin/sequelize db:migrate --env development --config ./config/sequelize.js",
+    "test": "env-cmd ./node_modules/.bin/mocha tests/**/*.test.js"
   },
   "repository": {
     "type": "git",
@@ -19,16 +20,21 @@
   },
   "homepage": "https://github.com/tdoncaster/NHL-Top-20-Goal-Scorers#readme",
   "dependencies": {
-    "D": "^1.0.0",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "mysql2": "^2.2.5",
     "nodemon": "^2.0.6",
     "pug": "^3.0.0",
     "pug-lint": "^2.6.0",
-    "sequelize": "^6.3.5"
+    "sequelize": "^6.3.5",
+    "sequelize-cli": "^6.2.0"
   },
   "devDependencies": {
-    "eslint": "^7.14.0"
+    "chai": "^4.2.0",
+    "env-cmd": "^10.1.0",
+    "eslint": "^7.14.0",
+    "mocha": "^8.2.1",
+    "sinon": "^9.2.2",
+    "sinon-chai": "^3.5.0"
   }
 }
