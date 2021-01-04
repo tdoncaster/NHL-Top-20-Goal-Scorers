@@ -7,7 +7,7 @@ module.exports = {
       Example:
       return queryInterface.createTable('users', { id: Sequelize.INTEGER });
     */
-    return queryInterface.createTable('nhltop20', {
+    return queryInterface.createTable('topscorers', {
       id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
       name: { type: Sequelize.STRING },
       position: { type: Sequelize.STRING },
@@ -30,7 +30,7 @@ module.exports = {
       Example:
       return queryInterface.dropTable('users');
     */
-    return queryInterface.dropTable('nhltop20')
+    return queryInterface.dropTable('topscorers')
   }
 }
 
