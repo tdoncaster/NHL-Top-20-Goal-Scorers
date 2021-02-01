@@ -1,10 +1,10 @@
 const chai = require('chai')
 const sinon = require('sinon')
 const sinonChai = require('sinon-chai')
-const models = require('../models')
 const {
-  afterEach, before, beforeEach, describe, it
+  afterEach, before, beforeEach, describe, it,
 } = require('mocha')
+const models = require('../models')
 const { topPlayers, singlePlayer } = require('./mocks/players')
 // eslint-disable-next-line max-len
 const { getTop20scorers, getTopScorersById, saveNewPlayer } = require('../Controllers/topscorers')
@@ -23,9 +23,9 @@ describe('Controllers - topPlayers', () => {
 
   before(() => {
     sandbox = sinon.createSandbox()
-		stubbedFindAll = sandbox.stub(models.topscorers, 'findAll')
+    stubbedFindAll = sandbox.stub(models.topscorers, 'findAll')
     stubbedFindOne = sandbox.stub(models.topscorers, 'findOne')
-		stubbedCreate = sandbox.stub(models.topscorers, 'create')
+    stubbedCreate = sandbox.stub(models.topscorers, 'create')
     stubbedSend = sandbox.stub()
     stubbedSendStatus = sandbox.stub()
     stubbedStatusSend = sandbox.stub()
@@ -42,7 +42,6 @@ describe('Controllers - topPlayers', () => {
   beforeEach(() => {
     stubbedStatus.returns({ send: stubbedStatusSend })
   })
-
 
   afterEach(() => {
     sandbox.reset()

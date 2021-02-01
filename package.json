@@ -4,10 +4,12 @@
   "description": "You will be building a working API and front-end. This is part 1 of 2. Create a new repo in GitHub for your project, make your instructor a collaborator, and clone it locally. Remember to work in and part-one-answer branch, not master In this part of your project you will be building the front-end for your API site. The design and content of your front-end is up to you, the only requirements are that it provide documentation for using the API you will be building and that it be built using Pug Your first progress check with your instructor will be the week of 11/18 You should push all progress to GitHub prior to your meeting with the instructor Your graded submission for this part will be due on 11/24 before class",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js",
-    "lint": ".node_modules/.bin/eslint --format codeframe .",
-    "dev:migrate": "./node_modules/.bin/env-cmd ./node_modules/.bin/sequelize db:migrate --env development --config ./config/sequelize.js",
-    "test": "env-cmd ./node_modules/.bin/mocha tests/**/*.test.js"
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:client": "env-cmd webpack --progress --config webpack.dev.js",
+    "dev:migrate": "env-cmd sequelize db:migrate --env development --config ./configs/sequelize.js",
+    "dev:server": "env-cmd babel-watch server.js",
+    "lint": "eslint --format codeframe .",
+    "lint:fix": "./node_modules/.bin/eslint --fix --format codeframe ."
   },
   "repository": {
     "type": "git",
@@ -20,21 +22,36 @@
   },
   "homepage": "https://github.com/tdoncaster/NHL-Top-20-Goal-Scorers#readme",
   "dependencies": {
+    "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
-    "mysql2": "^2.2.5",
+    "mysql2": "^2.1.0",
     "nodemon": "^2.0.6",
     "pug": "^3.0.0",
     "pug-lint": "^2.6.0",
-    "sequelize": "^6.3.5",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "sequelize": "^6.4.0",
     "sequelize-cli": "^6.2.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-react": "^7.12.10",
+    "babel-loader": "^8.2.2",
+    "babel-watch": "^7.3.0",
     "chai": "^4.2.0",
+    "concurrently": "^5.3.0",
     "env-cmd": "^10.1.0",
-    "eslint": "^7.14.0",
+    "eslint": "^7.18.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.22.0",
     "mocha": "^8.2.1",
     "sinon": "^9.2.2",
-    "sinon-chai": "^3.5.0"
+    "sinon-chai": "^3.5.0",
+    "webpack": "^5.17.0",
+    "webpack-cli": "^4.4.0"
   }
 }
